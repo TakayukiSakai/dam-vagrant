@@ -37,7 +37,7 @@ directory "/var/log/dam" do
 end
 
 service "iptables" do
-    action :stop
+    action [:disable, :stop]
 end
 
 service 'httpd' do
