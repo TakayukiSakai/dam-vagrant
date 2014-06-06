@@ -1,0 +1,27 @@
+<VirtualHost *:80>
+    ServerName dam.local
+
+    ErrorLog /var/log/httpd/dam-error_log
+    CustomLog /var/log/httpd/dam-access_log combined
+
+    php_value error_log /var/log/httpd/dam-error_log
+    php_value date.timezone "Asia/Tokyo"
+
+    DocumentRoot /vagrant/dam
+
+    <Directory /vagrant/dam>
+        Options FollowSymLinks
+        DirectoryIndex index.html index.htm index.php
+        AllowOverride None
+        RewriteEngine on
+        RewriteBase /
+        RewriteRule !\.(js|css|png|jpg|gif) index.php
+        Order Deny,Allow
+        Allow from all
+        EnableMMAP Off
+        EnableSendfile Off
+    </Directory>
+
+    ## CodeIgniter enviornment name
+    setEnv CI_ENV vagrant
+</VirtualHost>
