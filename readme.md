@@ -9,6 +9,7 @@ Local Virtual server setup for my personal project.
 3. vagrant up
 4. git clone git@dam.effers.com:dam.git (need my(Takayuki Sakai) approvement)
 5. cp config/* dam/application/config/
+6. cp index.php dam/index.php
 
 ## IP Address
 
